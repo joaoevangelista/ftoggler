@@ -22,7 +22,7 @@ public class Feature {
     }
 
     public Feature(String name, Condition... conditions) {
-        this(name, asList(conditions), false);
+        this(name, asList(conditions), true);
     }
 
 
@@ -36,5 +36,13 @@ public class Feature {
 
     public boolean isEnabled() {
         return enabled;
+    }
+
+    public Feature disable() {
+        return new Feature(this.name, this.conditions, false);
+    }
+
+    public Feature enable() {
+        return new Feature(this.name, this.conditions, true);
     }
 }

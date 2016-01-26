@@ -1,11 +1,11 @@
 package ftoggler;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import static ftoggler.EnvironmentConditionContext.ENV_PREFIX;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author Joao Pedro Evangelista
@@ -14,13 +14,13 @@ public class RouterTests {
 
     private Router router;
 
-    private InMemoryToggleableFeatureRepository featureLocator;
+    private InMemoryToggleableFeatureRepository repository;
 
     @Before
     public void setUp() throws Exception {
-        this.featureLocator = new InMemoryToggleableFeatureRepository();
+        this.repository = new InMemoryToggleableFeatureRepository();
         System.setProperty(ENV_PREFIX, "FOO_USER");
-        this.router = new Router(featureLocator, new EnvironmentConditionContext());
+        this.router = new Router(repository, new EnvironmentConditionContext());
     }
 
     @After
@@ -32,8 +32,24 @@ public class RouterTests {
     public void shouldHaveAutocompleteFeatureByGivenANewFeatureOnLocator() throws Exception {
         Condition fooUser = new Condition("FOO_USER");
         Feature feature = new Feature("autocomplete", fooUser);
-        featureLocator.enable(feature);
+        repository.enable(feature);
         boolean hasAutocomplete = router.isFeatureEnabled("autocomplete");
-        Assert.assertTrue(hasAutocomplete);
+        assertTrue(hasAutocomplete);
+    }
+
+    @Test
+    public void givenNoConditionsShouldMatchAnyOnContext() throws Exception {
+        Feature feature = new Feature("foo");
+        repository.enable(feature);
+        boolean isFooEnabled = router.isFeatureEnabled("foo");
+        assertTrue(isFooEnabled);
+    }
+
+    @Test
+    public void givenADisabledFeatureShouldNotGetAsEnabled() throws Exception {
+        Feature feature = new Feature("foo");
+        repository.enable(feature);
+        repository.disable("foo");
+
     }
 }
