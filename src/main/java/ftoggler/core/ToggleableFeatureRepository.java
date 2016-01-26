@@ -1,4 +1,4 @@
-package ftoggler;
+package ftoggler.core;
 
 /**
  * Part of the searching context to find where is stored the current developed features

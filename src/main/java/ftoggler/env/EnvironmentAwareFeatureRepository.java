@@ -1,4 +1,7 @@
-package ftoggler;
+package ftoggler.env;
+
+import ftoggler.core.DelegatingFeatureRepository;
+import ftoggler.core.Feature;
 
 /**
  * @author Joao Pedro Evangelista

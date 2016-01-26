@@ -1,5 +1,6 @@
-package ftoggler;
+package ftoggler.env;
 
+import ftoggler.core.Condition;
 import org.junit.Before;
 import org.junit.Test;
 

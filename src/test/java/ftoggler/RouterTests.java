@@ -1,10 +1,14 @@
 package ftoggler;
 
+import ftoggler.core.Condition;
+import ftoggler.core.Feature;
+import ftoggler.core.InMemoryToggleableFeatureRepository;
+import ftoggler.env.EnvironmentConditionContext;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static ftoggler.EnvironmentConditionContext.ENV_PREFIX;
+import static ftoggler.env.EnvironmentConditionContext.ENV_PREFIX;
 import static org.junit.Assert.assertTrue;
 
 /**

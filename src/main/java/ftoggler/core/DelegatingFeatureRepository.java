@@ -1,4 +1,4 @@
-package ftoggler;
+package ftoggler.core;
 
 /**
  * @author Joao Pedro Evangelista

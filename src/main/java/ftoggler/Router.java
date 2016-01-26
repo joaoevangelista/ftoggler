@@ -1,5 +1,9 @@
 package ftoggler;
 
+import ftoggler.core.Condition;
+import ftoggler.core.ConditionContext;
+import ftoggler.core.Feature;
+import ftoggler.core.ToggleableFeatureRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,4 +1,4 @@
-package ftoggler;
+package ftoggler.env;
 
 import org.junit.Before;
 

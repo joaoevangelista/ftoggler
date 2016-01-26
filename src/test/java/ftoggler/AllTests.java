@@ -1,5 +1,7 @@
 package ftoggler;
 
+import ftoggler.core.InMemoryConditionContextTests;
+import ftoggler.env.EnvironmentConditionContextTests;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 

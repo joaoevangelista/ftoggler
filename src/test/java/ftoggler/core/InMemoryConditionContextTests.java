@@ -1,4 +1,4 @@
-package ftoggler;
+package ftoggler.core;
 
 import org.junit.Before;
 import org.junit.Test;

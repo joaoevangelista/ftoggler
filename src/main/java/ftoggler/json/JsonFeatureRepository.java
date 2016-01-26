@@ -1,6 +1,8 @@
-package ftoggler;
+package ftoggler.json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import ftoggler.core.DelegatingFeatureRepository;
+import ftoggler.core.FTogglerException;
 
 import java.io.File;
 import java.io.FileInputStream;

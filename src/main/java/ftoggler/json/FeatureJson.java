@@ -1,4 +1,7 @@
-package ftoggler;
+package ftoggler.json;
+
+import ftoggler.core.Condition;
+import ftoggler.core.Feature;
 
 import java.util.List;
 
