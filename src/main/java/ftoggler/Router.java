@@ -12,13 +12,13 @@ import java.util.List;
 /**
  * @author Joao Pedro Evangelista
  */
-public class Router {
+class Router {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Router.class);
 
-    private final ToggleableFeatureRepository toggleableFeatureRepository;
+    protected final ToggleableFeatureRepository toggleableFeatureRepository;
 
-    private final ConditionContext conditionContext;
+    protected final ConditionContext conditionContext;
 
     public Router(ToggleableFeatureRepository toggleableFeatureRepository, ConditionContext conditionContext) {
         this.toggleableFeatureRepository = toggleableFeatureRepository;
