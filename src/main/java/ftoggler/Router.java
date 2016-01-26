@@ -26,7 +26,7 @@ public class Router {
         if (featureName == null || featureName.isEmpty()) {
             return false;
         } else {
-            Feature feature = toggleableFeatureRepository.getFeature(featureName);
+            Feature feature = toggleableFeatureRepository.get(featureName);
             boolean conditionsMatches = conditionsMatches(feature);
             return feature != null && feature.isEnabled() && conditionsMatches;
         }

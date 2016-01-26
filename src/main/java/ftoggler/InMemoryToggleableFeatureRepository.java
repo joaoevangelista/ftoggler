@@ -16,7 +16,7 @@ public class InMemoryToggleableFeatureRepository implements ToggleableFeatureRep
     private static final Logger LOGGER = LoggerFactory.getLogger(InMemoryToggleableFeatureRepository.class);
 
     @Override
-    public Feature getFeature(String feature) {
+    public Feature get(String feature) {
         return data.get(feature);
     }
 

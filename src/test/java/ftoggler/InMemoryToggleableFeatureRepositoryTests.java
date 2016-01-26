@@ -23,7 +23,7 @@ public class InMemoryToggleableFeatureRepositoryTests {
 
     @Test
     public void shouldGetAFeatureBasedOnName() throws Exception {
-        Feature feature = this.repository.getFeature("foo");
+        Feature feature = this.repository.get("foo");
         assertThat(feature.getConditions(), contains(new Condition("NOOP")));
         assertThat(feature.getName(), is("foo"));
     }
@@ -31,7 +31,7 @@ public class InMemoryToggleableFeatureRepositoryTests {
     @Test
     public void shouldEnableAFeatureOrCreateEnablingIt() throws Exception {
         repository.enable(new Feature("newStuff", new Condition("GREAT_USERS")));
-        Feature newStuff = repository.getFeature("newStuff");
+        Feature newStuff = repository.get("newStuff");
         assertThat(newStuff.isEnabled(), is(true));
         assertThat(newStuff.getConditions(), contains(new Condition("GREAT_USERS")));
         assertThat(newStuff.getName(), is("newStuff"));
@@ -40,7 +40,7 @@ public class InMemoryToggleableFeatureRepositoryTests {
     @Test
     public void shouldDisableAFeature() throws Exception {
         repository.disable("foo");
-        Feature fooFeature = repository.getFeature("foo");
+        Feature fooFeature = repository.get("foo");
         assertThat(fooFeature.isEnabled(), is(false));
     }
 }

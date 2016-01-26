@@ -15,8 +15,8 @@ public abstract class DelegatingFeatureRepository implements ToggleableFeatureRe
     }
 
     @Override
-    public Feature getFeature(String feature) {
-        return inMemoryRepository.getFeature(feature);
+    public Feature get(String feature) {
+        return inMemoryRepository.get(feature);
     }
 
     @Override

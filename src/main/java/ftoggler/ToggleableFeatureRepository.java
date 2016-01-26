@@ -8,7 +8,7 @@ package ftoggler;
  */
 public interface ToggleableFeatureRepository {
 
-    Feature getFeature(String feature);
+    Feature get(String feature);
 
     void enable(Feature feature);
 
