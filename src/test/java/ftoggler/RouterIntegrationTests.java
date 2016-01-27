@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class RouterIntegrationTests {
 
-    private Router router;
+    private DecisionRouter featureContext;
 
     @Before
     public void setUp() throws Exception {
@@ -21,14 +21,14 @@ public class RouterIntegrationTests {
         InMemoryToggleableFeatureRepository featureLocator = new InMemoryToggleableFeatureRepository();
         createContext(conditionContext);
         createFeatures(featureLocator);
-        this.router = new Router(featureLocator, conditionContext);
+        this.featureContext = new DecisionRouter(featureLocator, conditionContext);
     }
 
     @Test
     public void shouldAssertTheFeatureValue() throws Exception {
-        boolean isAutocompleteEnabled = router.isFeatureEnabled("autocomplete");
+        boolean isAutocompleteEnabled = featureContext.isFeatureEnabled("autocomplete");
         assertFalse("Should fail since it is not declared on the context all conditions", isAutocompleteEnabled);
-        boolean isDeleteFileEnabled = router.isFeatureEnabled("delete-file");
+        boolean isDeleteFileEnabled = featureContext.isFeatureEnabled("delete-file");
         assertTrue("Admin users must have delete feature", isDeleteFileEnabled);
     }
 

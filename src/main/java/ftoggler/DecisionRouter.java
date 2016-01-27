@@ -12,15 +12,15 @@ import java.util.List;
 /**
  * @author Joao Pedro Evangelista
  */
-class Router {
+class DecisionRouter {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Router.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DecisionRouter.class);
 
     protected final ToggleableFeatureRepository toggleableFeatureRepository;
 
     protected final ConditionContext conditionContext;
 
-    public Router(ToggleableFeatureRepository toggleableFeatureRepository, ConditionContext conditionContext) {
+    public DecisionRouter(ToggleableFeatureRepository toggleableFeatureRepository, ConditionContext conditionContext) {
         this.toggleableFeatureRepository = toggleableFeatureRepository;
         this.conditionContext = conditionContext;
     }

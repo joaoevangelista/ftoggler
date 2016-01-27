@@ -5,11 +5,11 @@ import ftoggler.core.Feature;
 import ftoggler.core.ToggleableFeatureRepository;
 
 /**
- * Router specialization that can enable and disable features as well all capabilities from {@link Router Router}
- *
+ * DecisionRouter specialization that can enable and disable features as well all capabilities from {@link DecisionRouter DecisionRouter}
+ * Creating a instance and sharing it across the application is the best way to use it.
  * @author Joao Pedro Evangelista
  */
-public class ToggleRouter extends Router {
+public class ToggleRouter extends DecisionRouter {
 
     public ToggleRouter(ToggleableFeatureRepository toggleableFeatureRepository, ConditionContext conditionContext) {
         super(toggleableFeatureRepository, conditionContext);

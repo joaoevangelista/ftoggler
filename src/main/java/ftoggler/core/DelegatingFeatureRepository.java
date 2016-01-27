@@ -29,6 +29,5 @@ public abstract class DelegatingFeatureRepository implements ToggleableFeatureRe
         this.inMemoryRepository.disable(feature);
     }
 
-
     public abstract void loadPropertiesAndSetOnContext();
 }

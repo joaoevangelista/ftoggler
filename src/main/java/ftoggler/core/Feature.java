@@ -1,5 +1,6 @@
 package ftoggler.core;
 
+import java.util.Collections;
 import java.util.List;
 
 import static java.util.Arrays.asList;
@@ -17,7 +18,7 @@ public class Feature {
 
     public Feature(String name, List<Condition> conditions, boolean enabled) {
         this.name = name;
-        this.conditions = conditions;
+        this.conditions = conditions == null ? Collections.<Condition>emptyList() : conditions;
         this.enabled = enabled;
     }
 

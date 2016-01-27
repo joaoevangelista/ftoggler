@@ -16,7 +16,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class RouterTests {
 
-    private Router router;
+    private DecisionRouter featureContext;
 
     private InMemoryToggleableFeatureRepository repository;
 
@@ -24,7 +24,7 @@ public class RouterTests {
     public void setUp() throws Exception {
         this.repository = new InMemoryToggleableFeatureRepository();
         System.setProperty(ENV_PREFIX, "FOO_USER");
-        this.router = new Router(repository, new EnvironmentConditionContext());
+        this.featureContext = new DecisionRouter(repository, new EnvironmentConditionContext());
     }
 
     @After
@@ -37,7 +37,7 @@ public class RouterTests {
         Condition fooUser = new Condition("FOO_USER");
         Feature feature = new Feature("autocomplete", fooUser);
         repository.enable(feature);
-        boolean hasAutocomplete = router.isFeatureEnabled("autocomplete");
+        boolean hasAutocomplete = featureContext.isFeatureEnabled("autocomplete");
         assertTrue(hasAutocomplete);
     }
 
@@ -45,7 +45,7 @@ public class RouterTests {
     public void givenNoConditionsShouldMatchAnyOnContext() throws Exception {
         Feature feature = new Feature("foo");
         repository.enable(feature);
-        boolean isFooEnabled = router.isFeatureEnabled("foo");
+        boolean isFooEnabled = featureContext.isFeatureEnabled("foo");
         assertTrue(isFooEnabled);
     }
 
